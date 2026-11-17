@@ -1,71 +1,93 @@
-# Ganicon Electrics (Pty) Ltd
-## Corporate Website
+# Ganicon Electrics (Pty) Ltd — Website V1.1
 
-**Empowering Today with Technology of Tomorrow.**
+This is the first coded website foundation for Ganicon Electrics (Pty) Ltd.
 
-Official corporate website for Ganicon Electrics (Pty) Ltd.
+## Technology
 
-### Core capabilities
+- HTML5 — page structure and semantic content
+- CSS3 — visual design, responsive layout and animation
+- JavaScript — navigation, scroll behaviour and reveal effects
 
+No framework is required for V1. This is intentional: it keeps the code easy to learn, inspect and modify.
+
+## Project structure
+
+```text
+ganicon-electrics-website-v1/
+├── index.html
+├── styles.css
+├── script.js
+├── README.md
+└── assets/
+    └── README.md
+```
+
+## How to run it
+
+1. Extract the ZIP file.
+2. Open the folder in Visual Studio Code.
+3. Open `index.html` directly in a browser, or use the VS Code **Live Server** extension.
+4. Edit a file, save it, and refresh the browser.
+
+## Important placeholders
+
+Before publishing, replace:
+
+- The temporary `G` brand mark with the approved Ganicon logo.
+- The temporary colour system with colours sampled from the approved logo/letterhead if necessary.
+- `info@example.com` with the official Ganicon email address.
+- Any approved company registration/contact information you want displayed.
+- Any project status descriptions that have changed.
+
+## Recommended next development stages
+
+### V1.1 — Brand integration
+Add the approved logo, letterhead colours, favicon and final company contact details.
+
+### V1.2 — Content architecture
+Create dedicated pages for:
+- About Ganicon
 - Software Development
 - Electronics & Engineering
 - Metrology & Quality
-- Mobility Systems
+- Mobility Services
+- TruDrags V2
+- SafeRoute
+- RoadSafe
+- Integrated Management System / Quality
+- Contact
 
-### Current website release
+### V1.3 — Technical production readiness
+Add:
+- SEO metadata and social preview cards
+- Privacy notice and POPIA-aligned website privacy content
+- Cookie handling only if tracking/cookies are introduced
+- Production contact form with server-side validation
+- Analytics only after deciding what data Ganicon actually needs
+- Security headers and deployment configuration
 
-**V1.1 — Corporate Brand Integration**
+### V2 — Web application foundation
+When the website starts needing authenticated dashboards, databases or customer portals, migrate selected functionality to an application architecture rather than turning the marketing site into one large script.
 
-The corporate identity combines a gold microchip, live company wordmark, dark navy backgrounds and cyan accents. Chip-only favicons and a horizontal footer identity complete the website branding.
+A good future stack for Ganicon could be:
+- Front end: HTML/CSS/JavaScript first, then React or Next.js when justified
+- API/backend: Python + FastAPI
+- Database: PostgreSQL
+- Authentication: standards-based authentication through a reputable provider or carefully managed first-party implementation
+- Deployment: a modern managed hosting platform initially, with infrastructure formalised as requirements grow
 
-### Technology and files
 
-A static website built with HTML, CSS and JavaScript. No build process, framework, database or package installation is required.
+## V1.1 Corporate Brand Integration
 
-```text
-index.html       Page content and structure
-styles.css       Branding, responsive layouts and animation
-script.js        Navigation, header behaviour and reveal effects
-assets/          Gold chip logo and 16, 32 and 192 px icons
-README.md        Project identity and maintenance guidance
-.gitignore       Files excluded from version control
-```
+This revision introduces the first approved visual identity direction:
 
-### Local preview
+- Gold microchip mark replaces the temporary G symbol.
+- Company wordmark remains live HTML text for accessibility and responsive control.
+- Gold is used as the corporate brand accent.
+- Cyan remains the digital/signal/interactive accent.
+- The corporate slogan is displayed separately from the primary logo.
+- Chip-only favicon files are included at 16 px, 32 px and 192 px.
+- The footer uses a horizontal chip + live wordmark lockup and the corporate slogan.
+- A restrained cyan/gold hover/load treatment demonstrates the future animated digital logo idea.
 
-Open `index.html` in a modern browser, or open the folder in Visual Studio Code and use Live Server. Google Fonts requires an internet connection; local fallback fonts remain available.
-
-Check navigation, the mobile menu, logo and favicons, and narrow-screen layout after changes.
-
-### Project portfolio
-
-- **001 — TruDrags V2:** drag-racing timing and data platform.
-- **002 — SafeRoute:** managed scholar transport platform.
-- **003 — RoadSafe:** road-safety back-office software.
-
-The preserved V1.1 design displays these numbers in shortened form (01, 02 and 03).
-
-### Development workflow
-
-- `main`: stable website source.
-- `development`: ongoing website changes, when created.
-- Use focused feature branches and review changes before merging into `main`.
-- Keep training exercises in a separate project.
-
-Use clear commits describing one meaningful change. Repository publication and website hosting are separate steps; this repository does not itself confirm an active GitHub Pages deployment.
-
-### Known V1.1 limitations
-
-- The contact button still uses `info@example.com`. Replace it with the approved company email before using the site for customer enquiries.
-- Company contact and registration details remain to be approved and added.
-- Project descriptions and status labels reflect the supplied prototype and need periodic review.
-- The chip images are raster assets; a final approved vector version can be introduced later.
-- The site has no contact-form backend or customer accounts.
-
-### Repository hygiene
-
-Commit only public website content and approved branding assets. Keep credentials, `.env` files, internal GIMS/QMS documents, controlled registers, CIPC source records, customer data and proprietary project material outside this repository. The ignore file is a convenience, not a substitute for reviewing staged files.
-
-### Ownership
-
-Copyright Ganicon Electrics (Pty) Ltd. All rights reserved. No open-source licence is granted by publication of this repository.
+The chip asset in this prototype was derived from the supplied raster logo. For production branding, replace it with the final approved vector SVG when available.
