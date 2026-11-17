@@ -27,6 +27,14 @@
 
   --container: min(1180px, calc(100% - 40px));
   --transition: 180ms ease;
+
+  /* Header and hero layout: keep these values together for easy adjustment. */
+  --header-height: 88px;
+  --header-logo-size: 72px;
+  --header-name-size: 2.5rem;
+  --header-subtitle-size: 0.82rem;
+  --hero-top-gap: 24px;
+  --portfolio-top-offset: 72px;
 }
 
 *,
@@ -63,7 +71,7 @@ a {
 }
 
 img {
-  max-width: 120%;
+  max-width: 100%;
   display: block;
 }
 
@@ -85,7 +93,7 @@ h1 {
   max-width: 920px;
   margin-bottom: 26px;
   color: #f7fbff;
-  font-size: clamp(3.2rem, 7vw, 7rem);
+  font-size: clamp(3rem, 7vw, 6.8rem);
   line-height: 0.95;
 }
 
@@ -95,13 +103,13 @@ h1 span {
 
 h2 {
   margin-bottom: 20px;
-  font-size: clamp(2.3rem, 4vw, 4.5rem);
+  font-size: clamp(2.2rem, 4vw, 4.4rem);
   line-height: 1.02;
 }
 
 h3 {
   margin-bottom: 12px;
-  font-size: 1.50rem;
+  font-size: 1.45rem;
   line-height: 1.15;
 }
 
@@ -167,7 +175,7 @@ ul {
 
 .section-heading > p:last-child {
   max-width: 680px;
-  font-size: 1.10rem;
+  font-size: 1.06rem;
 }
 
 .skip-link {
@@ -204,7 +212,7 @@ ul {
 
 .nav-wrap {
   display: flex;
-  min-height: 80px;
+  min-height: var(--header-height);
   align-items: center;
   justify-content: space-between;
   gap: 30px;
@@ -219,9 +227,9 @@ ul {
 
 .brand-mark {
   display: grid;
-  width: 50px;
-  height: 50px;
-  flex: 0 0 50px;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
   place-items: center;
 }
 
@@ -242,8 +250,8 @@ ul {
 }
 
 .brand-mark-logo img {
-  width: 60px;
-  height: 60px;
+  width: 46px;
+  height: 46px;
   object-fit: contain;
   filter: drop-shadow(0 0 12px rgba(212, 175, 90, 0.16));
   animation: ganiconBrandArrival 1100ms ease-out 300ms 1 both;
@@ -269,16 +277,41 @@ ul {
 .brand-copy strong {
   color: var(--gold);
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1.10rem;
+  font-size: 1.08rem;
   letter-spacing: 0.12em;
 }
 
 .brand-copy small {
   margin-top: 6px;
   color: #98a9b8;
-  font-size: 0.6rem;
+  font-size: 0.56rem;
   font-weight: 700;
   letter-spacing: 0.12em;
+}
+
+/* Larger header identity; the footer keeps its existing logo sizes. */
+.site-header .brand {
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.site-header .brand-mark {
+  width: var(--header-logo-size);
+  height: var(--header-logo-size);
+  flex-basis: var(--header-logo-size);
+}
+
+.site-header .brand-mark-logo img {
+  width: var(--header-logo-size);
+  height: var(--header-logo-size);
+}
+
+.site-header .brand-copy strong {
+  font-size: var(--header-name-size);
+}
+
+.site-header .brand-copy small {
+  font-size: var(--header-subtitle-size);
 }
 
 .primary-nav {
@@ -340,7 +373,8 @@ ul {
 /* Hero */
 .hero {
   min-height: 820px;
-  padding-top: 170px;
+  /* Move the slogan and headline up, leaving clearance below the fixed header. */
+  padding-top: calc(var(--header-height) + var(--hero-top-gap));
   overflow: hidden;
   color: white;
   background:
@@ -365,7 +399,8 @@ ul {
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(330px, 0.65fr);
-  align-items: center;
+  /* Do not centre the project card against the full height of the headline. */
+  align-items: start;
   gap: 72px;
 }
 
@@ -454,6 +489,7 @@ ul {
 
 .hero-panel {
   position: relative;
+  margin-top: var(--portfolio-top-offset);
   padding: 26px;
   border: 1px solid rgba(125, 211, 228, 0.18);
   border-radius: var(--radius-lg);
@@ -980,12 +1016,17 @@ ul {
 
 /* Responsive */
 @media (max-width: 980px) {
+  :root {
+    /* The project card follows the text when the layout becomes one column. */
+    --portfolio-top-offset: 0px;
+  }
+
   .section {
     padding: 90px 0;
   }
 
   .hero {
-    padding-top: 145px;
+    padding-top: calc(var(--header-height) + var(--hero-top-gap));
   }
 
   .hero-layout,
@@ -1047,6 +1088,10 @@ ul {
 @media (max-width: 760px) {
   :root {
     --container: min(100% - 28px, 1180px);
+    --header-height: 78px;
+    --header-logo-size: 52px;
+    --header-name-size: 1.65rem;
+    --header-subtitle-size: 0.62rem;
   }
 
   .section {
@@ -1067,7 +1112,7 @@ ul {
 
   .primary-nav {
     position: fixed;
-    inset: 78px 0 auto;
+    inset: var(--header-height) 0 auto;
     display: grid;
     gap: 0;
     padding: 12px 20px 26px;
@@ -1104,7 +1149,7 @@ ul {
 
   .hero {
     min-height: auto;
-    padding-top: 132px;
+    padding-top: calc(var(--header-height) + var(--hero-top-gap));
   }
 
   .hero-proof {
